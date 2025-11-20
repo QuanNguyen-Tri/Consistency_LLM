@@ -1,6 +1,6 @@
-model_path=$1
-target_model_path=$2
-max_new_tokens=$3
+model_path=cllm/consistency-llm-7b-math
+target_model_path=GAIR/Abel-7B-001
+max_new_tokens=512
 
 # test model is tested and we use the tokenizer of teacher model because the tokenizer of test model has something to fix
 python3 eval/gsm8k/speedup.py \
