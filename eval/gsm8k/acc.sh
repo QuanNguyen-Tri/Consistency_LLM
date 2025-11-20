@@ -1,4 +1,5 @@
-model_path=cllm/consistency-llm-7b-math
+# model_path=cllm/consistency-llm-7b-math
+model_path=GAIR/Abel-7B-001
 target_model_path=GAIR/Abel-7B-001
 max_new_tokens=512
 
