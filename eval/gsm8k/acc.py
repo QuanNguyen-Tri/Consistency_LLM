@@ -233,7 +233,7 @@ if __name__ == '__main__':
     ) 
     args = parser.parse_args()
     max_new_token = args.max_tokens
-    args.eval_only = True
+    # args.eval_only = True
     if args.eval_only == False:
         # part 1 we set the model and tokenizer
         model = transformers.AutoModelForCausalLM.from_pretrained(
