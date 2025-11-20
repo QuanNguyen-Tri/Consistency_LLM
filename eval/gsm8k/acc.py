@@ -296,7 +296,7 @@ if __name__ == '__main__':
             output = output.strip()
             outputs.append({'prompt': processed_prompt, 'answer': output})
             num_tokens += output_ids.numel()
-            print(num_tokens, output_ids.shape, processed_prompt)
+            # print(num_tokens, output_ids.shape, processed_prompt)
         print('>>>>>> generation done')
         end_time = time.time()
         print(f"Total number of tokens generated: {num_tokens}")
