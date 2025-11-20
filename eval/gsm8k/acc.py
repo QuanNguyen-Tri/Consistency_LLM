@@ -188,7 +188,7 @@ def get_raw_inputs(dev_set):
     # in this function, we will get the raw queries for a target dev set
     data = []
     if dev_set in ['all', 'gsm8k', 'math', 'mathgpt', 'gsm8k_robust']:
-        with open(f'test.jsonl') as f:
+        with open('eval/gsm8k/test.jsonl') as f:
             for line in jsonlines.Reader(f):
                 data.append(line)
         if dev_set != 'all':
