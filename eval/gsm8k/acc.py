@@ -154,7 +154,7 @@ def get_results(pred_file, dev_set):
     if dev_set in ['all', 'gsm8k', 'math', 'mathgpt', 'gsm8k_robust']:
         golds_str = []
         properties = []
-        with open(f'test.jsonl', 'r', encoding='utf-8') as f:
+        with open(f'eval/gsm8k/test.jsonl', 'r', encoding='utf-8') as f:
             for line in f:
                 if dev_set != "all":
                     if json.loads(line)['source'].lower() == dev_set:
@@ -233,6 +233,7 @@ if __name__ == '__main__':
     ) 
     args = parser.parse_args()
     max_new_token = args.max_tokens
+    args.eval_only = True
     if args.eval_only == False:
         # part 1 we set the model and tokenizer
         model = transformers.AutoModelForCausalLM.from_pretrained(
