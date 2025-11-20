@@ -255,6 +255,9 @@ if __name__ == '__main__':
         processed_prompts = processed_prompts[:args.sample_num] if args.sample_num > 0 else processed_prompts
 
         outputs = []
+        num_tokens = 0
+        import time
+        start_time = time.time()
         # part 3 we generate answers
         for processed_prompt in tqdm(processed_prompts):
 
@@ -292,8 +295,13 @@ if __name__ == '__main__':
                     output = output.replace(special_token, "")
             output = output.strip()
             outputs.append({'prompt': processed_prompt, 'answer': output})
+            num_tokens += output_ids.numel()
+            print(num_tokens, output_ids.shape, processed_prompt)
         print('>>>>>> generation done')
-
+        end_time = time.time()
+        print(f"Total number of tokens generated: {num_tokens}")
+        print(f"Total time taken: {end_time - start_time} seconds")
+        print(f"Tokens per second: {num_tokens / (end_time - start_time)}")
         # part 5 we save the results, always be {'id':id,'response':response}
         # if dir of output file is not exist, it will be created automatically
         with open(args.output_file_name, "w") as f:
